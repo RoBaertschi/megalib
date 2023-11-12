@@ -3,7 +3,7 @@
 //
 #define ML_LOGGER_IMPLEMENTATION
 #define ML_LOG_IMPLEMENTATION
-#include "logger.h"
+#include "megalib/logging/logger.h"
 
 int main(void) {
     logger_t logger1 = ml_create_logger("Logger 1");

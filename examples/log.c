@@ -3,7 +3,7 @@
 //
 
 #define ML_LOG_IMPLEMENTATION
-#include "log.h"
+#include "megalib/logging/log.h"
 
 /// Example of the logging system in megalib, also used for testing purposes
 int main(void) {

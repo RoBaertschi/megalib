@@ -12,7 +12,7 @@
 #ifndef MEGALIB_LOG_H
 #define MEGALIB_LOG_H
 
-#include "megalib.h"
+#include "megalib/megalib.h"
 
 #include <stdio.h>
 #include <string.h>
