@@ -5,6 +5,7 @@ set(API_VERSION 010)
 
 set(CMAKE_C_STANDARD 11)
 
+
 include(CMakeOptions.txt)
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(Deps)
@@ -31,7 +32,7 @@ set(public_headers
         src/megalib/window/window.h
         src/megalib/window/window.h
         src/megalib/thread/thread.h
-        src/megalib/argvparse.h
+        src/megalib/argvparse/argvparse.h
 )
 
 add_library(megalib INTERFACE

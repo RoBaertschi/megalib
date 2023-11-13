@@ -9,3 +9,6 @@ target_link_libraries(log megalib)
 
 add_executable(logger logger.c)
 target_link_libraries(logger megalib)
+
+add_executable(argvparse argvparse.c)
+target_link_libraries(argvparse megalib)

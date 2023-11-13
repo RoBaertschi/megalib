@@ -1,3 +1,7 @@
 [submodule "libs/pthread-win32"]
 	path = libs/pthread-win32
 	url = https://github.com/GerHobbelt/pthread-win32
+[submodule "libs/SDL2"]
+	path = libs/SDL2
+	url = https://github.com/libsdl-org/SDL
+	branch = release-2.28.x

@@ -1,4 +1,3 @@
-
 include(FetchContent)
 if (${WIN32})
     add_subdirectory(libs/pthread-win32)
@@ -20,12 +19,8 @@ if (${GLFW_SUPPORT})
 endif ()
 
 if (${SDL2_SUPPORT})
-    FetchContent_Declare(
-            sdl2
-            GIT_REPOSITORY https://github.com/libsdl-org/SDL/
-            GIT_TAG release-2.28.5
-    )
-    set(SDL2_DISABLE_SDL2MAIN ON CACHE BOOL "Disables SDL2's main" FORCE)
-    set(SDL2_DISABLE_INSTALL ON CACHE BOOL "Disables SDL2's install" FORCE)
-    FetchContent_MakeAvailable(sdl2)
+    set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
+    set(SDL2_DISABLE_SDL2MAIN ON CACHE BOOL  "" FORCE)
+    set(SDL2_DISABLE_INSTALL ON CACHE BOOL "" FORCE)
+    add_subdirectory(libs/SDL2)
 endif ()
