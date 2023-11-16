@@ -8,7 +8,7 @@
 /// Example of the logging system in megalib, also used for testing purposes
 int main(void) {
     LOG("Hello World");
-    LOG_INFO("INFO");
+    LOG_INFO("LOG_LEVEL_INFO");
     LOG_WARN("Warning");
     LOG_ERROR("Error");
 }

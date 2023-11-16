@@ -20,17 +20,17 @@ ML_API void ml_log(const char* file, int line, enum LogLevel type, const char* t
 ML_API char * ml_log_level_string(enum LogLevel type) {
     char* value;
     switch (type) {
-        case LOG:
+        case LOG_LEVEL_LOG:
             value = "";
             break;
-        case INFO:
-            value = " [INFO]";
+        case LOG_LEVEL_INFO:
+            value = " [LOG_LEVEL_INFO]";
             break;
-        case WARN:
-            value = " [WARN]";
+        case LOG_LEVEL_WARN:
+            value = " [LOG_LEVEL_WARN]";
             break;
-        case ERROR:
-            value = " [ERROR]";
+        case LOG_LEVEL_ERROR:
+            value = " [LOG_LEVEL_ERROR]";
             break;
     }
 
@@ -39,14 +39,14 @@ ML_API char * ml_log_level_string(enum LogLevel type) {
 ML_API char * ml_log_level_color_string(enum LogLevel type) {
     char* value;
     switch (type) {
-        case LOG:
-        case INFO:
+        case LOG_LEVEL_LOG:
+        case LOG_LEVEL_INFO:
             value = "";
             break;
-        case WARN:
+        case LOG_LEVEL_WARN:
             value = "\033[33m";
             break;
-        case ERROR:
+        case LOG_LEVEL_ERROR:
             value = "\033[31m";
     }
 

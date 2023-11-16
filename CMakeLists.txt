@@ -29,9 +29,9 @@ set(public_headers
         src/megalib/megalib.h
         src/megalib/logging/logger.h
         src/megalib/logging/log.h
-        src/megalib/window/window.h
-        src/megalib/window/window.h
-        src/megalib/thread/thread.h
+        src/megalib/os/window/window.h
+        src/megalib/os/window/window.h
+        src/megalib/os/thread/thread.h
         src/megalib/argvparse/argvparse.h
         src/megalib/datastructures/vector.h
 )
@@ -41,13 +41,14 @@ set(sources
         src/megalib/datastructures/vector.c
         src/megalib/logging/log.c
         src/megalib/logging/logger.c
+        src/megalib/os/window/impl/win32_window.c
 )
 
 add_library(megalib
         ${sources}
         ${public_headers})
 set_target_properties(megalib PROPERTIES LINKER_LANGUAGE C)
-target_compile_definitions(megalib PRIVATE ${PLATFORM})
+target_compile_definitions(megalib PUBLIC ${PLATFORM})
 set_target_properties(
         megalib PROPERTIES
         PUBLIC_HEADER "${public_headers}"

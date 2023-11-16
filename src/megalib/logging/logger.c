@@ -6,7 +6,7 @@
 
 ML_API struct logger_t ml_create_logger(const char* name) {
     logger_t logger = {
-            INFO,
+            LOG_LEVEL_INFO,
             name,
     };
 

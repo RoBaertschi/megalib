@@ -15,3 +15,7 @@ target_link_libraries(argvparse megalib)
 
 add_executable(vector vector.c)
 target_link_libraries(vector megalib)
+
+add_executable(window window.c)
+target_link_libraries(window megalib)
+

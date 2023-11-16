@@ -8,10 +8,10 @@
 int main(void) {
     logger_t logger1 = ml_create_logger("Logger 1");
     ml_logger_log(&logger1, LOG, "Hello World!");
-    ml_logger_log(&logger1, INFO, "Hello World!");
-    ml_logger_log(&logger1, WARN, "Hello World!");
-    ml_logger_log(&logger1, ERROR, "Hello World!");
+    ml_logger_log(&logger1, LOG_LEVEL_INFO, "Hello World!");
+    ml_logger_log(&logger1, LOG_LEVEL_WARN, "Hello World!");
+    ml_logger_log(&logger1, LOG_LEVEL_ERROR, "Hello World!");
 
     logger_t  logger2 = ml_create_logger("Hello Test");
-    ml_logger_log(&logger2, WARN, "Welp");
+    ml_logger_log(&logger2, LOG_LEVEL_WARN, "Welp");
 }

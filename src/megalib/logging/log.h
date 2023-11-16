@@ -46,10 +46,10 @@
 #endif
 
 enum LogLevel {
-    LOG = 0,
-    INFO = 1,
-    WARN = 2,
-    ERROR = 3
+    LOG_LEVEL_LOG = 0,
+    LOG_LEVEL_INFO = 1,
+    LOG_LEVEL_WARN = 2,
+    LOG_LEVEL_ERROR = 3
 };
 
 ML_API void ml_log(const char* file, int line, enum LogLevel type, const char * text);
