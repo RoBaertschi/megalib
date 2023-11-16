@@ -33,12 +33,21 @@ set(public_headers
         src/megalib/window/window.h
         src/megalib/thread/thread.h
         src/megalib/argvparse/argvparse.h
+        src/megalib/datastructures/vector.h
 )
 
-add_library(megalib INTERFACE
+set(sources
+        src/megalib/argvparse/argvparse.c
+        src/megalib/datastructures/vector.c
+        src/megalib/logging/log.c
+        src/megalib/logging/logger.c
+)
+
+add_library(megalib
+        ${sources}
         ${public_headers})
 set_target_properties(megalib PROPERTIES LINKER_LANGUAGE C)
-target_compile_definitions(megalib INTERFACE ${PLATFORM})
+target_compile_definitions(megalib PRIVATE ${PLATFORM})
 set_target_properties(
         megalib PROPERTIES
         PUBLIC_HEADER "${public_headers}"
@@ -47,18 +56,20 @@ set_target_properties(
 )
 target_include_directories(
         megalib
-        INTERFACE
+        PUBLIC
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src
+        src
+        PRIVATE
         src
 )
 
 # Dependencies
 
 if (${WIN32})
-    target_link_libraries(megalib INTERFACE pthreadVC3)
+    target_link_libraries(megalib pthreadVC3)
 elseif ()
-    target_link_libraries(megalib INTERFACE pthread)
+    target_link_libraries(megalib pthread)
 endif ()
 
 add_subdirectory(examples)
@@ -71,7 +82,7 @@ set(BUILD_SHARED_LIBS ${BUILD_SHARED})
 if (${BUILD_SHARED_LIBS})
     MESSAGE(STATUS "Building megalib as a library")
     if (${WIN32})
-        target_compile_definitions(megalib INTERFACE $<BUILD_INTERFACE:BUILD_LIBTYPE_SHARED> INTERFACE $<INSTALL_INTERFACE:USE_LIBTYPE_SHARED>)
+        target_compile_definitions(megalib PRIVATE $<BUILD_INTERFACE:BUILD_LIBTYPE_SHARED> INTERFACE $<INSTALL_INTERFACE:USE_LIBTYPE_SHARED>)
         if (${MSVC})
             set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
         endif ()

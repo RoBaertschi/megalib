@@ -12,3 +12,6 @@ target_link_libraries(logger megalib)
 
 add_executable(argvparse argvparse.c)
 target_link_libraries(argvparse megalib)
+
+add_executable(vector vector.c)
+target_link_libraries(vector megalib)

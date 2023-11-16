@@ -34,10 +34,22 @@ int main(void) {
             10
             );
 
-    printf("%s, %s, %s, %s",
+    char testDesc[] = "testDesc";
+
+    ml_argvparser_add_flag(
+            &args->arg_defs[2].command->args,
+            &args->arg_defs[2].command->size,
+            ML_PARAMETER_TYPE_NONE,
+            true,
+            testDesc,
+            strlen(testDesc) + 1
+            );
+
+    printf("%s, %s, %s, %s, %s",
            args->arg_defs[0].flag->description,
            args->arg_defs[1].flag->description,
-           args->arg_defs[2].command->name, args->arg_defs[2].command->description
+           args->arg_defs[2].command->name, args->arg_defs[2].command->description,
+           args->arg_defs[2].command->args[0].flag->description
            );
     ml_destroy_argvparser(args);
 }
