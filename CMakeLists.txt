@@ -34,6 +34,9 @@ set(public_headers
         src/megalib/os/thread/thread.h
         src/megalib/argvparse/argvparse.h
         src/megalib/datastructures/vector.h
+        src/megalib/os/opengl/glad/gl.h
+        src/megalib/os/opengl/glad/wgl.h
+        src/megalib/os/opengl/KHR/khrplatform.h
 )
 
 set(sources
@@ -42,6 +45,10 @@ set(sources
         src/megalib/logging/log.c
         src/megalib/logging/logger.c
         src/megalib/os/window/impl/win32_window.c
+        src/megalib/os/opengl/gl.c
+        src/megalib/os/opengl/wgl.c
+        src/megalib/os/opengl/opengl.h
+        src/megalib/os/opengl/impl/opengl_win32.c
 )
 
 add_library(megalib
@@ -61,6 +68,7 @@ target_include_directories(
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src
         src
+        src/megalib/os/opengl
         PRIVATE
         src
 )

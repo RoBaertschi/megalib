@@ -57,6 +57,7 @@ ML_API window_t* mlw_create(const char* title) {
             hInstance,
             NULL
             );
+    window->win32.dc = GetDC(window->win32.hwnd);
 
     window->type = WINDOW_TYPE_WIN32;
 

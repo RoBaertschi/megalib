@@ -30,7 +30,7 @@ typedef enum WindowType {
 #ifdef WINDOWS
 typedef struct win32_t {
     HWND hwnd;
-
+    HDC dc;
 } win32_t;
 #endif
 
